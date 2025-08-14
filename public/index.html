@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Torn Money Watcher</title>
+    <style>
+        body { font-family: Arial, sans-serif; background: #1e1e1e; color: #fff; padding: 20px; }
+        h1 { color: #4CAF50; }
+        .log-entry { padding: 10px; border-bottom: 1px solid #333; }
+    </style>
+</head>
+<body>
+    <h1>Torn Money Watcher</h1>
+    <div id="logs"></div>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script>
+        const socket = io();
+
+        socket.on("connect", () => {
+            console.log("✅ Connected to server");
+        });
+
+        socket.on("newLog", log => {
+            console.log("📥 Received log:", log);
+            const div = document.getElementById("logs");
+            div.innerHTML =
+                `<div class="log-entry">
+                    <b>${log.friend}</b> received $${log.amount} from ${log.sender} | Balance: $${log.balance}
+                </div>` + div.innerHTML;
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,12 @@
+{
+  "3860238": {
+    "lastLogId": 4,
+    "timestamp": 1755162289,
+    "lastEvent": "[sikel] Received $123 from Unknown (3903641) at 14/8/2025, 2:34:49 pm"
+  },
+  "3903641": {
+    "lastLogId": null,
+    "timestamp": 1755163882,
+    "lastEvent": "Money send"
+  }
+}
